@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
+import { useTitle } from "./useTitle";
 
 function App() {
-  const sayHello = () => console.log("Hello");
-  const [leftNumber, setLeftNumber] = useState(0);
-  const [rightNumber, setRightNumber] = useState(0);
-  useEffect(sayHello, [leftNumber]);
+  const titleUpdater = useTitle("Loading...");
+  setTimeout(() => titleUpdater("Home"), 5000);
   return (
     <div className="App">
       <h1>Hi</h1>
-      <button onClick={() => setLeftNumber(leftNumber + 1)}>
-        {leftNumber}
-      </button>
-      <button onClick={() => setRightNumber(rightNumber + 1)}>
-        {rightNumber}
-      </button>
     </div>
   );
 }
