@@ -1,26 +1,19 @@
-import { useTabs } from "./useTabs";
-
-const content = [
-  {
-    tab: "Section 1",
-    content: "I'm the content of the Sections 1",
-  },
-  {
-    tab: "Section 2",
-    content: "I'm the content of the Sections 2",
-  },
-];
+import { useEffect, useState } from "react";
 
 function App() {
-  const { currentItem, changeItem } = useTabs(0, content);
+  const sayHello = () => console.log("Hello");
+  const [leftNumber, setLeftNumber] = useState(0);
+  const [rightNumber, setRightNumber] = useState(0);
+  useEffect(sayHello, [leftNumber]);
   return (
     <div className="App">
-      {content.map((section, index) => (
-        <button key={index} onClick={() => changeItem(index)}>
-          {section.tab}
-        </button>
-      ))}
-      <div>{currentItem.content}</div>
+      <h1>Hi</h1>
+      <button onClick={() => setLeftNumber(leftNumber + 1)}>
+        {leftNumber}
+      </button>
+      <button onClick={() => setRightNumber(rightNumber + 1)}>
+        {rightNumber}
+      </button>
     </div>
   );
 }
