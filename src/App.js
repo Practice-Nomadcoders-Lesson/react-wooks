@@ -1,12 +1,11 @@
-import { usePreventLeave } from "./usePreventLeave/usePreventLeave";
+import { useBeforeLeave } from "./useBeforeLeave/useBeforeLeave";
 
 function App() {
-  const { enablePrevent, disablePrevent } = usePreventLeave();
+  const begForeLife = () => console.log("Plz don't leave");
+  useBeforeLeave(begForeLife);
   return (
     <div className="App">
       <h1>Hi</h1>
-      <button onClick={enablePrevent}>Protect</button>
-      <button onClick={disablePrevent}>Unprotect</button>
     </div>
   );
 }
