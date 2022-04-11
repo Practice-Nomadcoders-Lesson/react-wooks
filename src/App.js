@@ -1,13 +1,14 @@
-import { useNotification } from "./useNotification/useNotification";
+import useAxios from "./useAxios/useAxios";
 
 function App() {
-  const triggerNotif = useNotification("Can I steal your kimchi ?", {
-    body: "I love kimchi don't you?",
+  const { loading, data, refetch } = useAxios({
+    url: "https://yts.mx/api/v2/list_movies.json",
   });
   return (
     <div>
-      <h1>Hello</h1>
-      <button onClick={triggerNotif}>Hello</button>
+      <h1>{data && data.status}</h1>
+      <h2>{loading && "Loading"}</h2>
+      <button onClick={refetch}>Refetch</button>
     </div>
   );
 }
